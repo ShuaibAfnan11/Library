@@ -542,6 +542,7 @@ function reloadCart() {
                 <div><img src="images/${value.image}"/></div>
                 <div class="liName">${value.name}</div>
                 <div class="liPrice">${value.price.toLocaleString()}$</div>
+                <button onclick="removeProduct(${key})">remove</button>
             `;
             listCard.appendChild(newDiv);
         }
@@ -549,6 +550,12 @@ function reloadCart() {
     })
     total.innerText = totalPrice.toLocaleString();
     amount.innerText = count;
+}
+
+function removeProduct(key){
+    // let product = listCards[key];
+    listCards.splice(key, 1);
+    reloadCart();
 }
 
 function searchBooks() {
